@@ -96,16 +96,6 @@ contract ERC20Staking is ReentrancyGuard, Ownable {
         _availableRewards = calculateRewards(_user);
     }
 
-    /// @notice getter function to get the reward per second for staking one LP Token
-    /// @return _rewardPerToken the amount of token per second rewarded for staking one LP Token
-    function getRewardPerToken()
-        external
-        view
-        returns (uint256 _rewardPerToken)
-    {
-        return rewardRate / totalStakedSupply;
-    }
-
     /// @notice function for the Owner of the Contract to set the Staking to initialize a staking period and set the amount of tokens to be distributed as rewards in that period
     /// @param _amount the amount of Reward Tokens to be distributed
     /// @param _duration the duration in with the rewards will be distributed, in seconds
